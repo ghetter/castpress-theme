@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Source+Serif+Pro:wght@400;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+html {
+  font-family: "Source Serif Pro", serif;
+}
+
+body.locked {
+  overflow-y: hidden;
+}
+
+a, path {
+  -webkit-transition: color 0.15s ease-in;
+  transition: color 0.15s ease-in;
+  -webkit-transition: fill 0.15s ease-in;
+  transition: fill 0.15s ease-in;
+}
+
+address {
+  font-style: normal;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #979797 #eaeaee;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #eaeaee;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #979797;
+  border-radius: 5px;
+  border: 0px none #ffffff;
+}
+
+:root {
+  --primary-color: #222222;
+  --secondary-color: #555555;
+  --tertiary-color: #979797;
+  --accent-color: #7247CA;
+  --hover-color: #58379B;
+  --service-color: #FF3636;
+  --light-gray-01: #F5F5F7;
+  --light-gray-02: #EAEAEE;
+}
+
+*::-moz-selection {
+  background-color: var(--light-gray-02);
+}
+
+*::selection {
+  background-color: var(--light-gray-02);
+}
+
+.wrapper {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 702px;
+  width: 100%;
+  margin: 0px auto;
+  padding: 0px 16px;
+}
+
+.c-page {
+  padding: 96px 0px 64px;
+}
+@media (max-width: 500px) {
+  .c-page {
+    padding: 48px 0px 49px;
+  }
+}
+
+.c-contact__heading {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--primary-color);
+  margin-bottom: 13px;
+}
+.c-contact__subheading {
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--primary-color);
+  margin-bottom: 46px;
+}
+.c-contact__message {
+  margin-bottom: 39px;
+}
+.c-contact__name, .c-contact__email {
+  margin-bottom: 24px;
+}
+.c-contact__name, .c-contact__email, .c-contact__message {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.c-contact__label {
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--secondary-color);
+  margin-bottom: 4px;
+}
+.c-contact__input, .c-contact__textarea {
+  padding: 7px 10px 6px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 12px;
+  line-height: 27px;
+  resize: none;
+  background-color: #f5f5f7;
+}
+.c-contact__input:focus, .c-contact__textarea:focus {
+  outline: 1px solid var(--secondary-color);
+}
+.c-contact__textarea {
+  height: 150px;
+}
+.c-contact__submit {
+  padding: 8px 16px;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  color: var(--light-gray-01);
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.c-contact__submit:hover {
+  background-color: var(--hover-color);
+}
+
+.is-required:after {
+  content: "*";
+}
