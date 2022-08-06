@@ -75,6 +75,9 @@
 .c-footer .f-nav__link:hover {
   color: var(--hover-color) !important;
 }
+.c-footer .f-newsletter {
+  width: 315px;
+}
 .c-footer .f-newsletter__heading {
   font-size: 16px;
   font-weight: 600;
@@ -103,6 +106,7 @@
   font-size: 12px;
   line-height: 15px;
   padding: 8px;
+  padding-right: 47px;
   color: var(--secondary-color);
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
@@ -150,5 +154,8 @@
   }
   .c-footer__copy-text {
     white-space: nowrap;
+  }
+  .c-footer .f-newsletter {
+    width: 100%;
   }
 }

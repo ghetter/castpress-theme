@@ -167,6 +167,7 @@ address {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  border-radius: 4px;
 }
 .c-single-episode__thumbnail img {
   width: 100%;
@@ -180,6 +181,8 @@ address {
 .c-single-episode__thumbnail img:hover {
   -webkit-filter: brightness(0.9);
           filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .c-single-episode__header {
   display: -ms-flex;
@@ -223,11 +226,11 @@ address {
   white-space: nowrap;
   color: var(--tertiary-color);
 }
-.c-info__date, .c-info__author {
+.c-info__date a, .c-info__author a {
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
-.c-info__date:hover, .c-info__author:hover {
+.c-info__date a:hover, .c-info__author a:hover {
   color: var(--secondary-color);
 }
 
@@ -240,28 +243,37 @@ address {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
 }
 .c-player__toggle {
   display: -ms-flex;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 7px 15px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  background-color: var(--light-gray-01);
-  border-radius: 4px;
+  padding: 7px 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: var(--light-gray-01);
+  border-radius: 4px;
   gap: 8.5px;
+  cursor: pointer;
   font-size: 12px;
   line-height: 15px;
   -webkit-transition: all 0.3s ease-in;
@@ -278,7 +290,144 @@ address {
 .c-player__toggle:hover path {
   fill: var(--light-gray-01);
 }
-
+.c-player__toggle.hidden {
+  display: none;
+}
+.c-player__content {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: -10px;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.c-player__content.active {
+  top: 0px;
+  opacity: 1;
+  visibility: visible;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.c-player__progress {
+  display: -webkit-flex;
+  width: 100%;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+}
+.c-player__progress input {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(34, 34, 34)), color-stop(0%, rgb(34, 34, 34)), color-stop(0%, rgb(255, 255, 255)), to(white));
+  background-image: linear-gradient(to right, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 0%, rgb(255, 255, 255) 0%, white 100%);
+  border-radius: 4px;
+  height: 7px;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: background 450ms ease-in;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+.c-player__progress input::-webkit-slider-runnable-track {
+  border-radius: 4px;
+}
+.c-player__progress input::-webkit-slider-thumb {
+  background-color: var(--primary-color);
+  border-radius: 0px 4px 4px 0px;
+  height: 7px;
+  width: 7px;
+  -webkit-appearance: none;
+}
+.c-player__seek-slider {
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(34, 34, 34)), color-stop(0%, rgb(34, 34, 34)), color-stop(0%, rgb(255, 255, 255)), to(#F5F5F7));
+  background-image: linear-gradient(to right, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 0%, rgb(255, 255, 255) 0%, #F5F5F7 100%);
+  border-radius: 4px;
+  height: 7px;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-transition: background 450ms ease-in;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+.c-player__seek-slider::-webkit-slider-runnable-track {
+  border-radius: 4px;
+}
+.c-player__seek-slider::-webkit-slider-thumb {
+  background-color: var(--primary-color);
+  border-radius: 0px 4px 4px 0px;
+  height: 7px;
+  width: 7px;
+  -webkit-appearance: none;
+}
+.c-player__seek-slider::-moz-range-progress {
+  display: none;
+}
+.c-player__volume {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.c-player__volume-slider {
+  width: 0px;
+  opacity: 0;
+  visibility: hidden;
+  bottom: -20px;
+  left: 2px;
+  position: absolute;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(34, 34, 34)), color-stop(0%, rgb(34, 34, 34)), color-stop(0%, rgb(255, 255, 255)), to(#F5F5F7));
+  background-image: linear-gradient(to right, rgb(34, 34, 34) 0%, rgb(34, 34, 34) 0%, rgb(255, 255, 255) 0%, #F5F5F7 100%);
+  border-radius: 4px;
+  height: 7px;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease-in, background 450ms ease-in;
+  transition: all 0.25s ease-in, background 450ms ease-in;
+  -webkit-appearance: none;
+}
+.c-player__volume-slider.active {
+  width: 45px;
+  opacity: 1;
+  bottom: -20px;
+  visibility: visible;
+}
+.c-player__volume-slider::-webkit-slider-runnable-track {
+  border-radius: 4px;
+}
+.c-player__volume-slider::-webkit-slider-thumb {
+  background-color: var(--primary-color);
+  border-radius: 0px 4px 4px 0px;
+  height: 7px;
+  width: 7px;
+  -webkit-appearance: none;
+}
+.c-player__play-pause, .c-player__volume-icon, .c-player__download {
+  cursor: pointer;
+}
 .c-streaming {
   display: -ms-flex;
   display: -webkit-box;
@@ -386,6 +535,7 @@ address {
   height: 0;
   -webkit-transition: all 0.22s ease-in;
   transition: all 0.22s ease-in;
+  overflow-y: hidden;
 }
 .c-log.active {
   visibility: visible;
@@ -395,8 +545,8 @@ address {
   position: relative;
 }
 .c-log__content {
-  height: 304px;
   overflow-y: scroll;
+  height: 100%;
   padding-right: 31px;
 }
 .c-log__row:not(:last-child) {
@@ -499,8 +649,20 @@ address {
   display: flex;
   gap: 39px;
 }
+.c-post__cover {
+  border-radius: 4px;
+  overflow: hidden;
+}
 .c-post__cover img {
   width: 100%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.c-post__cover img:hover {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .c-post__content {
   display: -ms-flex;
@@ -541,12 +703,12 @@ address {
   font-size: 14px;
   font-weight: 600;
   line-height: 25px;
-  color: var(--accent-color);
+  color: var(--accent-color) !important;
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
 .c-post__read-more:hover {
-  color: var(--hover-color);
+  color: var(--hover-color) !important;
 }
 
 .c-reply {
@@ -555,14 +717,31 @@ address {
 }
 .c-reply__header {
   margin-bottom: 43px;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .c-reply__heading {
   font-size: 16px;
   line-height: 25px;
   color: var(--primary-color);
 }
+.c-reply__cancel {
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--accent-color);
+}
 .c-reply__subheading {
   font-size: 16px;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
   line-height: 17px;
   color: var(--tertiary-color);
 }
@@ -700,6 +879,9 @@ address {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

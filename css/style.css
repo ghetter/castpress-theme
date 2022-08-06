@@ -82,6 +82,10 @@ a, path {
   transition: color 0.15s ease-in;
 }
 
+input::-moz-range-progress {
+  background: #664AFF;
+}
+
 :root {
   --primary-color: #222222;
   --secondary-color: #555555;
@@ -431,6 +435,10 @@ a, path {
           align-items: center;
 }
 .slider .episode__cover {
+  border-radius: 4px;
+  overflow: hidden;
+  width: 180px;
+  height: 180px;
   text-align: center;
   margin-bottom: 39px;
   -webkit-transition: -webkit-filter 0.3s ease-in;
@@ -438,9 +446,16 @@ a, path {
   transition: filter 0.3s ease-in;
   transition: filter 0.3s ease-in, -webkit-filter 0.3s ease-in;
 }
-.slider .episode__cover:hover {
+.slider .episode__cover img {
+  width: 100%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.slider .episode__cover img:hover {
   -webkit-filter: brightness(0.9);
           filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .slider .episode__heading {
   font-size: 26px;
@@ -469,7 +484,7 @@ a, path {
       -ms-flex-align: center;
           align-items: center;
   text-transform: capitalize;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 18px;
   border-radius: 4px;
   background-color: #F5F5F7;
@@ -491,32 +506,42 @@ a, path {
 .slider .episode__link:hover path {
   fill: #f5f5f7;
 }
-.slider .streaming__heading {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 12px;
-}
-.slider .streaming__list {
+.slider .c-streaming {
   display: -ms-flex;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.slider .c-streaming__heading {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 15px;
+  letter-spacing: 0.16em;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.slider .c-streaming__list {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   gap: 30px;
 }
-.slider .streaming__link path {
-  -webkit-transition: fill 0.15s ease-in;
-  transition: fill 0.15s ease-in;
+.slider .c-streaming__item path {
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
-.slider .streaming__link:hover path {
-  fill: #7247CA;
+.slider .c-streaming__item:hover path {
+  fill: var(--hover-color);
 }
-
 .c-latest-episodes {
   margin-bottom: 64px;
 }
@@ -524,6 +549,18 @@ a, path {
   content: "-";
   display: inline-block;
   margin-left: 4.5px;
+}
+.c-latest-episodes__page {
+  width: 100%;
+}
+.c-latest-episodes__page:last-child {
+  position: absolute;
+  -webkit-transform: translateX(200%);
+          transform: translateX(200%);
+}
+.c-latest-episodes__page:first-child {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
 }
 .c-latest-episodes .c-episode:not(:nth-child(3)) {
   margin-bottom: 70px;
@@ -737,8 +774,19 @@ a, path {
   transition: box-shadow 0.15s ease-in;
   transition: box-shadow 0.15s ease-in, -webkit-box-shadow 0.15s ease-in;
 }
+.creator__photo {
+  overflow: hidden;
+}
 .creator__photo img {
   width: 100%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.creator__photo img:hover {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .creator__main {
   padding: 16px;
@@ -760,6 +808,15 @@ a, path {
 .creator:hover {
   -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.creator:hover .creator__photo {
+  overflow: hidden;
+}
+.creator:hover .creator__photo img {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .c-social__list {
@@ -830,9 +887,21 @@ a, path {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.c-posts .c-latest-post__cover {
+  border-radius: 4px;
+  overflow: hidden;
+}
 .c-posts .c-latest-post__cover img {
   max-width: 180px;
   width: 100%;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.c-posts .c-latest-post__cover img:hover {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .c-posts .c-latest-post__content {
   padding: 0px 15px;

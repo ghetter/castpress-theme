@@ -149,6 +149,11 @@ address {
   }
 }
 
+.c-episodes .o-bullet:after {
+  content: "-";
+  display: inline-block;
+  margin-left: 4.5px;
+}
 .c-episodes__heading {
   font-size: 26px;
   font-weight: 600;

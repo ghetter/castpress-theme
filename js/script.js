@@ -8,28 +8,23 @@ const  body = document.querySelector("body"),
     submenu = body.querySelector(".nav__sublist"),
     search_toggle_c = body.querySelector(".s-toggle-closed"),
     search_toggle_o = body.querySelector(".s-toggle-opened"),
-    search = body.querySelector(".search__form"),
-    first_page = body.querySelector(".first-page"),
-    last_page = body.querySelector(".last-page")
-    prev_page = body.querySelector(".c-pagination__prev-page"),
-    next_page = body.querySelector(".c-pagination__next-page"),
-    trns_toggle = body.querySelector(".c-transcript__view-log-link"),
-    trns = body.querySelector(".c-log");
-
-
+    search = body.querySelector(".search__form");
 
 // Burger Logic //
 //
 toggle.addEventListener("click", () => {
     menu.classList.toggle("active");
     toggle.classList.toggle("active");
+    if(toggle.classList.contains("active")){
+        toggle.classList.remove("inactive");
+    } else {
+        toggle.classList.add("inactive");
+    }
     body.classList.toggle("locked");
     logo.classList.toggle("locked");
 });
-
+//
 ///////////////////////////////////////////////
-
-
 
 
 // Search Logic //
@@ -51,52 +46,54 @@ search_toggle_o.addEventListener("click", () => {
 
 ///////////////////////////////////////////////
 
-
-
-
-
 // Mobile and Desktop navigation logic //
 //
-if (matchMedia('(min-width: 949px)').matches) {
-    header.addEventListener("mouseleave", () => {
-        submenu.classList.remove("active");
-    });
 
-    header.addEventListener("click", () => {
-        submenu.classList.remove("active");
-    });
 
-    subtoggle.addEventListener("mouseover", () => {
-        submenu.classList.add("active");
-    });
+setInterval(function(){
+    if (matchMedia('(min-width: 949px)').matches) {
+        body.classList.remove("locked");
 
-    submenu.addEventListener("mouseleave", () => {
-        submenu.classList.remove("active");
-    });
-}
+    }
 
-else {}
+    else if(menu.classList.contains("active")) {
+        body.classList.add("locked");
+    }
 
-if (matchMedia('(max-width: 948px)').matches) {
-    subtoggle.addEventListener("click", () => {
-        submenu.classList.toggle("active");
-    });
-}
 
-else {}
+    if (matchMedia('(min-width: 949px)').matches) {
+        header.addEventListener("mouseleave", () => {
+            submenu.classList.remove("active");
+            subtoggle.classList.remove("active");
+        });
 
-if (matchMedia('(min-width: 949px)').matches) {
-    body.classList.remove("locked");
-}
+        header.addEventListener("click", () => {
+            submenu.classList.remove("active");
+            subtoggle.classList.remove("active");
+        });
 
-else {}
+        subtoggle.addEventListener("mouseover", () => {
+            submenu.classList.add("active");
+            subtoggle.classList.add("active");
+        });
+
+        submenu.addEventListener("mouseleave", () => {
+            submenu.classList.remove("active");
+            subtoggle.classList.remove("active");
+        });
+    }
+
+    else {}
+
+
+    if (matchMedia('(max-width: 948px)').matches) {
+        subtoggle.addEventListener("click", () => {
+            submenu.classList.toggle("active");
+            subtoggle.classList.toggle("active");
+        });
+    }
+
+    else {}
+}, 1000);
 
 ///////////////////////////////////////////////
-
-
-// Transcript logic
-//
-
-trns_toggle.addEventListener("click", () => {
-    trns.classList.toggle("active");
-});
